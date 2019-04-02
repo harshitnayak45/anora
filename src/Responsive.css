@@ -1,0 +1,30 @@
+@media (max-width: 767px) {
+    .top-search {
+        margin: 10px 0;
+    }
+        
+    .tab-content {
+        margin-top: 30px;
+    }
+        
+    .comment-tabs .nav-tabs {
+        text-align: center;
+    }    
+        
+    #profile-main {
+        padding-bottom: 0;
+    } 
+        
+    #footer {
+        margin-top:0px;
+    } 
+        
+    .main-tab-inner-box-top-head h4 {
+        font-size: 14px;
+        width: 80%;
+    } 
+        
+    .list-generator li {
+        margin-right: 20px;
+    }    
+    }
