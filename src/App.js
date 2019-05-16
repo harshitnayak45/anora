@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import './App.css';
-import './Responsive.css';
+import './App.scss';
+import './Responsive.scss';
 import MainLayout from './component/mainLayout';
 
 class App extends Component {
@@ -10,11 +10,9 @@ class App extends Component {
       <div>
          <Router>
           <div>
-           
             <Switch>
               <Route path="/" component={MainLayout} /> 
             </Switch>
-
           </div>
         </Router>
      

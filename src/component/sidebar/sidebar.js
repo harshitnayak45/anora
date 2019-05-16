@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 class SideBar extends Component {
     render() {
         return (
@@ -12,7 +12,7 @@ class SideBar extends Component {
                     <div className="profile-avatar-content">
                         <h4>James Harrington</h4>
                         <h5>james@somecompany.com</h5>
-                        <a href="#">Edit</a>
+                        <Link >Edit</Link>
                     </div>
 
                     <div className="profile-main-list">

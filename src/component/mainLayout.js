@@ -6,6 +6,7 @@ import Billing from './billing/billing';
 import Header from './header/header';
 import SideBar from './sidebar/sidebar';
 import Footer from './footer/footer';
+import BarChart from './change-password/change-password';
 class MainLayout extends Component {
     render() {
         return (
@@ -21,7 +22,7 @@ class MainLayout extends Component {
                            <Switch>
                             <Route exact path="/" component={MySave} />
                             <Route  path="/mySaves" component={MySave} />
-                            <Route path="/ChangePassword" component={ChangePassword} />
+                            <Route path="/ChangePassword" component={BarChart} />
                             <Route path="/Billing" component={Billing} />
                         </Switch>
                             </div>

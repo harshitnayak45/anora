@@ -1,20 +1,67 @@
 import React, { Component } from 'react';
+import './test.scss';
 class ChangePassword extends Component {
-    render() {
-        return (
-            <div>
-                <p>
-                    Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis.
-                    Summus brains sit, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris.
-                    Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium.
-                    Qui animated corpse, cricket bat max brucks terribilem incessu zomby.
-                            </p>
-                <p>
-                    The voodoo sacerdos flesh eater, suscitat mortuos comedere
-                    carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies.
-                    Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.
-                            </p>
+  constructor() {
+    super()
+    this.state = {
+      items: ["🍰 Cake", "🍩 Donut", "🍎 Apple", "🍕 Pizza"]
+    }
+  }
+  onDragStart = (e, index) => {
+    this.draggedItem = this.state.items[index];
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData("text/html", e.target.parentNode);
+    e.dataTransfer.setDragImage(e.target.parentNode, 20, 20);
+    console.log('drag----', index);
+  };
 
+  onDragOver = index => {
+    const draggedOverItem = this.state.items[index];
+    console.log('drop ---', index);
+    // if the item is dragged over itself, ignore
+    if (this.draggedItem === draggedOverItem) {
+      return;
+    }
+
+    // filter out the currently dragged item
+    let items = this.state.items.filter(item => item !== this.draggedItem);
+
+     console.log('xxxxxxxxxxxxx drop index', this.draggedItem);
+     // add the dragged item after the dragged over item
+    items.splice(index, 0, this.draggedItem);
+
+    this.setState({ items });
+    console.log('xxxxxxxxxxxxx drop', this.state.items);
+  };
+
+  onDragEnd = () => {
+    this.draggedIdx = null;
+  };
+    render() {
+   
+        return (
+            <div className="">
+             <div className="App">
+        <main>
+          <h3>List of items</h3>
+          <ul>
+            {this.state.items.map((value, index) => (
+              <li key={value} onDragOver={() => this.onDragOver(index)}>
+                <div
+                  className="drag"
+                  draggable
+                  onDragStart={e => this.onDragStart(e, index)}
+                  onDragEnd={this.onDragEnd}
+                >
+                 hhhhhh
+                </div>
+                <span className="content">{value}</span>
+              </li>
+            ))}
+          </ul>
+        </main>
+      </div>
+             
             </div>
         );
     }
